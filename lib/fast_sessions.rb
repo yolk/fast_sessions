@@ -118,7 +118,7 @@ module ActiveRecord
 
       # Create/update session if session data has been changed during a request processing
       def save
-        return unless should_save_session?
+        return true unless should_save_session?
 
         # Marshal data before saving
         marshaled_data = self.class.marshal(data)
